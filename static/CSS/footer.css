@@ -1,0 +1,70 @@
+.container-fluid-footer{
+    background-color:#f8f9fb;
+    width: 100%;
+    margin: 0%;
+    /* position: absolute;
+    bottom: 0;  */
+}
+.container-fluid-footer .row{
+  width: 100%;
+  margin: 0px;
+}
+.container-fluid-footer h1{
+  font-size: 30px;
+  color: black;
+}
+.container-fluid-footer h1:after {
+background: #3c91f8;
+content: "";
+display: block;
+width: 100px;
+height: 3px;
+margin: 10px 0px;
+}
+.container-fluid-footer .footer{
+background-color: #3c91f8;
+color: white;
+}
+
+.container-fluid-footer .fab{
+background-color: white;
+color: #3c91f8;
+font-size: 20px;
+height: 50px;
+width: 50px;
+}
+.container-fluid-footer .fab:hover{
+color: white;
+background-color:#3c91f8;
+}
+
+.container-fluid-footer .fas{
+font-size: 20px;
+color: #3c91f8;
+}
+.container-fluid-footer a{
+color: black;
+text-decoration: none;
+}
+.container-fluid-footer a:hover{
+color: #3c91f8;
+}
+@media (max-width: 768px){
+  .container-fluid-footer .col-6{
+display: none;
+}
+.container-fluid-footer .col-3{
+width: 50%;
+}
+}
+@media (max-width: 600px){
+  .container-fluid-footer .col-3{
+width: 100%;
+margin:auto;
+text-align: center;
+}
+.container-fluid-footer h1:after{
+margin: auto;
+margin-top: 10px;
+}
+}

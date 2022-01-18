@@ -1,0 +1,133 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.title{
+  background: linear-gradient(to bottom, #ffff 0%, #3c91f8 100%);
+}
+.title-row{
+  position: relative;
+  text-align: center;
+}
+.centered {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#book{
+  background-color: white;
+  color: #3c91f8;
+
+}
+#book label{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+#book button{
+  margin: auto;
+}
+.section-head:after {
+  background: #3c91f8;
+  content: "";
+  display: block;
+  width: 100px;
+  height: 3px;
+  margin: 20px auto;
+}
+.table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead{
+  background-color: bisque;
+}
+
+.table th{
+  font-size: 20px;
+  font-weight: 600;
+  /* letter-spacing: 0.35px; */
+  opacity: 1;
+  padding: 12px;
+  vertical-align: top;
+  text-align: center;
+  /* border: 2px solid white; */
+  color: white;
+}
+
+.table tbody tr td{
+  font-size: 15px;
+  /* letter-spacing: 0.35px; */
+  /* font-weight: 500; */
+  padding: 18px;
+  text-align: center;
+  /* border: 2.3px solid #3c91f8; */
+}
+
+@media only screen and (max-width: 768px){
+  th{
+      display: none;
+  }
+  .table, .table tbody, .table tr, .table td{
+      display: block;
+      width: 100%;
+  }
+  .table tr{
+      margin-bottom: 15px;
+
+  }
+  .table tbody tr td{
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+      background-color: #3c91f8;
+      color: white;
+      border: 1.5px solid white;
+      margin-left: 10px;
+  }
+  .table td:before{
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 15px;
+      font-weight: 800;
+      font-size: 14px;
+      text-align: left;
+  }
+}
+@media only screen and (max-width: 768px){
+  .section-head{
+    margin-top: 200px;
+  }
+}
+.btntr{
+  color: white;
+  background-color: #3c91f8;
+}
+[type='date']:in-range::-webkit-datetime-edit-year-field,input[type='date']:in-range::-webkit-datetime-edit-month-field,input[type='date']:in-range::-webkit-datetime-edit-day-field,input[type='date']:in-range::-webkit-datetime-edit-text{  color: transparent;}
+
+/* .nav-link {
+      font-weight: 400;
+      font-size: 15px;
+      padding:0;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .nav-link {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    } */
+
+    /* .row{
+      height: 100vh;
+      background-size: 500px 200px;
+      background-image: url('../image/Booking.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+    } */
+

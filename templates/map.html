@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a6eb863fb1374d3195f09838030ee64a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_a6eb863fb1374d3195f09838030ee64a" ></div>
+        
+</body>
+<script>    
+    
+            var map_a6eb863fb1374d3195f09838030ee64a = L.map(
+                "map_a6eb863fb1374d3195f09838030ee64a",
+                {
+                    center: [23.0258, 72.5873],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9509c1e68742439ba44b04325f629203 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a6eb863fb1374d3195f09838030ee64a);
+        
+    
+            var feature_group_420c9d369d2541c9824b6370725b7b8e = L.featureGroup(
+                {}
+            ).addTo(map_a6eb863fb1374d3195f09838030ee64a);
+        
+    
+            var marker_c822133f2f574537b2e63ae43545ab97 = L.marker(
+                [23.0258, 72.5873],
+                {}
+            ).addTo(feature_group_420c9d369d2541c9824b6370725b7b8e);
+        
+    
+        var popup_68fa0cef715545e5bba5c2a37188fd2b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6cf01e8558404f3e874355b39912b0e9 = $(`<div id="html_6cf01e8558404f3e874355b39912b0e9" style="width: 100.0%; height: 100.0%;">this is were taj mahal is located  </div>`)[0];
+            popup_68fa0cef715545e5bba5c2a37188fd2b.setContent(html_6cf01e8558404f3e874355b39912b0e9);
+        
+
+        marker_c822133f2f574537b2e63ae43545ab97.bindPopup(popup_68fa0cef715545e5bba5c2a37188fd2b)
+        ;
+
+        
+    
+</script>

@@ -1,0 +1,221 @@
+{% load static %}
+{% include 'Navbar.html' %} 
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	{% load static %} <link rel="stylesheet" href="{%  static  'CSS/home.css'  %}">
+	
+	<title>Hello, world!</title>
+</head>
+
+<body>
+	<div class="animated">
+		<div class="bubbles">
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+		</div>
+		<div class="content">
+			<center>
+				<h1 style="font-size: 80px;">NEED A RIDE?</h1>
+				<h2 style="font-size: 30px; color: grey;">YOU'VE COME TO THE RIGHT PLACE.</h2>
+			</center>
+			<center>
+				<button class="btn btn-lg m-2" style="background-color: #3c91f8; color: white; width: 180px;">Our Services</button> 
+				<button class="btn btn-lg m-2" style="background-color: #3c91f8; color: white; width: 180px;">Book Bus</button>
+			</center>
+		</div>
+	</div>
+	<div id="book-in-home">
+		<div class="row m-4">
+			<form action="">
+				<div class="row mb-5">
+					<div class="col-sm-4">
+						<label for="exampleFormControlInput1">DEPARTURE DATE</label>
+						<br><input type="date" value="" class="form-control">
+					</div>
+					<div class="col-sm-4">
+						<label for="exampleFormControlInput1">PICK UP LOCATION</label>
+						<select class="form-control" id="exampleFormControlSelect1">
+							<option selected disabled>--select--</option>
+							<option value='Bhuj'>Bhuj</option>
+                  <option value='Maliya'>Maliya</option>
+                  <option value="Halvad">Halvad</option>
+                  <option value="Dhrangadhra">Dhrangdhra</option>
+                  <option value="Viramgaam">Viramgam</option>
+                  <option value="Ahemdabad">Ahemdabad</option>
+						</select>
+					</div>
+					<div class="col-sm-4">
+						<label for="exampleFormControlInput1">DROP OFF LOCATION</label>
+						<br><select class="form-control" id="exampleFormControlSelect1">
+							<option selected disabled>--select--</option>
+							<option value='Bhuj'>Bhuj</option>
+                  <option value='Maliya'>Maliya</option>
+                  <option value="Halvad">Halvad</option>
+                  <option value="Dhrangadhra">Dhrangdhra</option>
+                  <option value="Viramgaam">Viramgam</option>
+                  <option value="Ahemdabad">Ahemdabad</option>
+						</select>
+					</div>
+				</div>
+				<div class="row pt-4" style="border-top: 2px solid white;">
+					<div class="col-md-5"><label for=""> HOW MANY PEOPLE (INCLUDING CHILDREN)?</label></div>
+					<div class="col-md-4"><input type="number" style="width: 100px;" class="form-control"></div>
+					<div class="col-md-3"><button class="btn" type="submit"
+							style="width: 100%; background-color: white; color: #3c91f8;">Find Bus</button></div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<div id="about-us" class="" style="background-color: #f8f9fb">
+		<div class="container">
+			<div class="row mx-3">
+				<div class="col-md-6 about-img">
+				{% load static %}<img src="{% static 'image/about-us.svg' %}" alt="" 
+				class="p-3 mt-5 d-none d-md-block img-fluid" style="width: 100%">
+				</div>
+				<div class="col-md-6 about-text">
+					<h6 class="sub-head">ABOUT US</h6>
+					<h1 class="head">We are Happy to Serve You!</h1><br>
+					<p> Founded in 2000 by Mr. Robert Hook</p>
+					<p>End to End bus reservation system which includes supply supplier interface, inbuilt extranet for the bus operators, root scheduling sheet mapping, seat selection by travellers price and availability management and much more.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="our-mission" class="py-2">
+		<div class="container">
+			<div class="row mx-3">
+				<div class="col-md-6 mission-text">
+					<h6 class="sub-head">OUR MISSION</h6>
+					<h1 class="head">Speed and Safety</h1><br>
+					<p>To be India’s most safe, premium holistic and fast-growing ticket booking platform.</p>
+				</div>
+				<div class="col-md-6 mission-img" style="margin: auto;">
+					<center>
+				{% load static %}<img src="{% static 'image/mission.svg' %}" alt="" 
+				class="d-none d-md-block img-fluid p-3">
+				</center>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container section">
+		<div class="row mx-3">
+			<div class="col-md-12">
+				<h6 class="sub-head">
+					<center>OUR SERVICES</center>
+				</h6>
+				<h2 class="section-head"> Services We Provided</h2>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="service-box shadow">
+					<i class="fas fa-piggy-bank"></i>
+					<h3>FIXED RATES</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis maiores ipsum libero explicabo 
+						temporibus quas, est saepe sequi amet, minima quidem sapiente aperiam </p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="service-box shadow">
+					<i class="fas fa-wallet"></i>
+					<h3>NO BOOKING FEES</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis maiores ipsum libero explicabo 
+						temporibus quas, est saepe sequi amet, minima quidem sapiente aperiam </p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="service-box shadow">
+					<i class="fas fa-magic"></i>
+					<h3>BOOKING FLEXIBILITY</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis maiores ipsum libero explicabo 
+						temporibus quas, est saepe sequi amet, minima quidem sapiente aperiam </p>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+				<div class="service-box shadow">
+					<i class="fas fa-trophy"></i>
+					<h3>AWARD WINNING SERVICE</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis maiores ipsum libero explicabo 
+						temporibus quas, est saepe sequi amet, minima quidem sapiente aperiam </p>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+				<div class="service-box shadow">
+					<i class="fas fa-phone-alt"></i>
+					<h3>24H CUSTOMER SERVICE</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis maiores ipsum libero explicabo 
+						temporibus quas, est saepe sequi amet, minima quidem sapiente aperiam </p>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+				<div class="service-box shadow">
+					<i class="fas fa-heart"></i>
+					<h3>FREE CANCELLATION</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis maiores ipsum libero explicabo 
+						temporibus quas, est saepe sequi amet, minima quidem sapiente aperiam </p>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+				<div class="service-box shadow">
+					<i class="fas fa-lock"></i>
+					<h3>RELIABLE TRANSFERS</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis maiores ipsum libero explicabo 
+						temporibus quas, est saepe sequi amet, minima quidem sapiente aperiam </p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="service-box shadow">
+					<i class="fas fa-paperclip"></i>
+					<h3>BENEFITS FOR PARTNERS</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis maiores ipsum libero explicabo 
+						temporibus quas, est saepe sequi amet, minima quidem sapiente aperiam </p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="service-box shadow">
+					<i class="fas fa-star"></i>
+					<h3>QUALITY VEHICLES</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis maiores ipsum libero explicabo 
+						temporibus quas, est saepe sequi amet, minima quidem sapiente aperiam </p>
+				</div>
+			</div>
+		</div>
+	</div> 
+	{% include 'Footer.html' %} 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

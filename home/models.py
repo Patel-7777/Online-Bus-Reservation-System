@@ -1,0 +1,45 @@
+from django.db import models
+
+# Create your models here.
+class AddBus(models.Model):
+    Bname = models.CharField(max_length=50)
+    PickUp=models.TextField()
+    ptime=models.TimeField()
+    dest=models.TextField()
+    dtime=models.TimeField()
+    s1name=models.TextField()
+    s1time=models.TimeField()
+    s1fare=models.IntegerField(default=0)
+    s2name=models.TextField()
+    s2time=models.TimeField()
+    s2fare=models.IntegerField(default=0)
+    s3name=models.TextField()
+    s3time=models.TimeField()
+    s3fare=models.IntegerField(default=0)
+    s4name=models.TextField()
+    s4time=models.TimeField()
+    s4fare=models.IntegerField(default=0)
+    Btype=models.TextField()
+    fare=models.IntegerField(default=0)
+
+class Passenger(models.Model):
+    Uname=models.CharField(max_length=50)
+    Fname=models.CharField(max_length=50)
+    Phoneno=models.IntegerField()
+    email=models.EmailField()
+    age=models.IntegerField()
+    gender=models.TextField()
+    busName=models.CharField(max_length=50)
+    source=models.TextField()
+    destination=models.TextField()
+    stime=models.TimeField()
+    dtime=models.TimeField()
+    totFare=models.IntegerField()
+    busType=models.TextField()
+    seatNum=models.IntegerField()
+    date=models.DateField()
+
+class Seat(models.Model):
+    busName=models.CharField(max_length=50)
+    seatNo=models.IntegerField()
+    seatStatus=models.BooleanField(default=False)

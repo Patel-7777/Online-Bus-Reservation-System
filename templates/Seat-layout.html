@@ -1,0 +1,264 @@
+{% load static %}
+{% include 'Navbar.html' %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <!-- <script src="path/from/html/page/to/jquery.min.js"></script> -->
+        <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+        crossorigin="anonymous"></script>
+      
+    <!-- {% load static %} <link rel="stylesheet" href="{%  static  'CSS/home.css'  %}">
+	 -->
+    <style>
+        .col-1 {
+            width: 40px;
+            height: 50px;
+            background-color: gainsboro;
+            line-height: 50px;
+        }
+
+        .col-1:focus{
+            background-color: green;
+        }
+        .col-2 {
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .row {
+            margin: auto;
+        }
+
+        .login {
+            margin: auto;
+            margin-left: auto;
+            padding: auto;
+        }
+
+        .login .row {
+            width: 90%;
+            margin: auto;
+        }
+
+        .login input{
+            border: none;
+            outline: none;
+            height: 35px;
+        }
+        .login select{
+            border: none;
+            outline: none;
+            height: 35px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .login .row {
+                margin-left: 0px;
+                margin-right: 0px;
+                width: 100%;
+                margin-bottom: 100px;
+            }
+        }
+
+        .login .image {
+            background-color: #3c91f8;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+
+        .login .form {
+            display: flex;
+            justify-content: center;
+            color: #3c91f8;
+        }
+
+        .login .form .form-group {
+            display: flex;
+            justify-content: left;
+            color: #3c91f8;
+        }
+
+        .login .fas {
+            color: #3c91f8;
+        }
+        .section-head:after{
+      background: #3c91f8;
+      content: "";
+      display: block;
+      width: 80px;
+      height: 3px;
+      margin: 10px auto;
+  } 
+    </style>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <div>
+        <center>
+            <h1 class="m-4 mb-0 section-head">{{name}}</h1>
+        </center>
+    </div>
+    <div class="seat" >
+        <div class="main p-5" >
+        <center>
+            <h1>Select Seat</h1></center>
+            <form id="form">
+                {% csrf_token %}
+            <center>
+            <div class="row" style="margin-left: 250px;">
+            {% for i in seat1 %}
+                {% if i.seatStatus %}
+                    <div class="col-1 m-1 rounded" tabindex="2" style="width: 70px; background-color: #3c91f8"> {{i.seatNo}}</div>
+            <!-- <h1>{{i.seatNo}}</h1> -->
+                {% else %}
+                    <div class="col-1 m-1 rounded" style="width: 70px;"> {{i.seatNo}}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </center>
+
+    <center>
+        <div class="row" style="margin-left: 250px;">
+        {% for i in seat2 %}
+            <div class="col-1 m-1 rounded" style="width: 70px;">{{i.seatNo}}</div>
+        <!-- <h1>{{i.seatNo}}</h1> -->
+        {% endfor %}
+    </div>
+</center>
+<div class="row m-4"></div>
+<center>
+    <div class="row"style="margin-left: 250px;">
+    {% for i in seat3 %}
+        <div class="col-1 m-1 rounded" style="width: 70px;">{{i.seatNo}}</div>
+    <!-- <h1>{{i.seatNo}}</h1> -->
+    {% endfor %}
+</div>
+</center>
+
+<center>
+    <div class="row"style="margin-left: 250px;">
+    {% for i in seat4 %}
+        <div class="col-1 m-1 rounded" style="width: 70px;">{{i.seatNo}}</div>
+    <!-- <h1>{{i.seatNo}}</h1> -->
+    {% endfor %}
+</div>
+</center>
+
+</form>
+            <div class="row mt-4" style="margin-left: 250px;">
+                <!-- <div class="col-1 rounded m-1" style="background-color: #00ff00;"></div>
+                <div class="col-2">Selected</div> -->
+                <div class="col-1 rounded m-1" style="background-color: #3c91f8"></div>
+                <div class="col-2">Booked</div>
+                <div class="col-1 rounded m-1"></div>
+                <div class="col-2">Not Booked</div>
+                <div class="col-2 rounded m-1"><a class="btn rounded-pill px-4" style="background-color: #3c91f8; color: white;"
+                     href="{%url 'trackBus' %}">
+                    Track Bus</a></div>
+                
+            </div>
+            <div class=" login my-5">
+                <div class="row shadow-lg">
+                    <div class="col-md-5 image">
+                        {% load static %}<img src="{% static 'image/bookbus.svg' %}" alt=""
+                            class="p-3 d-none d-md-block img-fluid" style="width: 100%; background-color: #3c91f8;">
+                    </div>
+                    <div class="col-md-7  form p-4 py-3 pb-2">
+                        <div class="my-auto text-center">
+                            <h3 class="section-head" style="color: black;">Book Bus</h3>
+                            <form  method="post">
+                                {% csrf_token %}
+                                <div class="form-group rounded-pill my-3 px-3 shadow">
+                                    <div>
+                        
+                                        <i class="fas fa-user"></i>
+                                        <input type="text" name='Fname' style="border: none;" id="name"
+                                            placeholder="Full Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group rounded-pill my-3 px-3 shadow">
+                                    <div>
+                                        
+                                        <i class="fas fa-phone-alt"></i>
+                                        <input type="text" name='Phoneno' style="border: none;" id="name"
+                                            placeholder="Phone No.">
+                                    </div>
+                                </div>
+
+                                <div class="form-group rounded-pill my-3 px-3 shadow">
+                                    <div>
+                                        <i class="fas fa-envelope"></i>
+   
+                                       
+                                        <input type="email" name='email' style="border: none;" id="name"
+                                            placeholder="Email ID">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="rounded-pill my-3 px-3 shadow" style="margin-right: 15px;">
+                                        <i class="fas fa-sort-numeric-up-alt"></i>
+                                        <input type="number" name='age' style="border: none;" id="name"
+                                            placeholder="Age">
+                                    </div>
+                                    <div class="rounded-pill my-3 px-3 shadow">
+                                        <i class="fas fa-venus-mars"></i>
+                                        <select type="text" name='gender' style="border: none;" id="name"
+                                            placeholder="Gender">
+                                            <option value="" selected disabled>Gender</option>
+                                            <option value="female">Female</option>
+                                            <option value="male">Male</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="rounded-pill my-3 px-3 shadow" style="margin-right: 15px;">
+                                        <i class="fas fa-sort-numeric-up"></i>
+                                        <input type="number" name='seatNum' style="border: none;" placeholder="Seat number">
+                                    </div>
+                                </div>
+                                <button  type="submit" class="btn my-2 px-3 rounded-pill shadow-lg"
+                                    style="background-color: #3c91f8; color: white;">
+                                    <em><i>Book Seat</i></em></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'Footer.html' %}
+
+    <!-- <script type="text/javascript">
+        $(document).on('submit','#form',function(e){
+            e.preventDefault();
+            $.ajax({
+                type:'POST',
+                url:'seatNumber',
+                data:
+                {
+                    no:$("#seatNumber").val(),
+                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+                },
+                success:function(data){
+                  $('textarea').html(data);        
+                }
+                })
+            })
+        </script> -->
+</body>
+
+</html>

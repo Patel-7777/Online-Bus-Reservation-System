@@ -1,0 +1,210 @@
+{% load static %}
+{% include 'Navbar.html' %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/CSS/Bus-list.css">
+  <!-- <link rel="stylesheet" href="../static/CSS/home.css"> -->
+   {% load static %} <link rel="stylesheet" href="{%  static  'CSS/Bus-list.css'  %}">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <title>Hello, world!</title>
+  <style>
+     td{
+       margin: 100px;
+       padding: 10px;
+     }
+  </style>
+</head>
+
+<body>
+  
+  <div class="title container-fluid mx-0">
+  <div class="row title-row pb-5 pt-4">
+    <img src="../static/image/road.svg" alt="" class="px-0" style="width: 60%; margin-left: 40%;">
+    <div class="centered">
+      <div id="book" class="p-3 mx-5 mt-2 rounded border">
+        <div class="row ">
+          <form action="book" method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-sm-3">
+                <label>DEPARTURE DATE</label>
+                <br><input type="date" name="date" value="" class="form-control">
+              </div>
+              <div class="col-sm-3">
+                <label>PICK UP LOCATION</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="pickup">
+                  <option value=" " selected disabled>--select--</option>
+                  <option value='Bhuj'>Bhuj</option>
+                  <option value='Maliya'>Maliya</option>
+                  <option value="Halvad">Halvad</option>
+                  <option value="Dhrangadhra">Dhrangdhra</option>
+                  <option value="Viramgaam">Viramgam</option>
+                  <option value="Ahemdabad">Ahemdabad</option>
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <label>DROP OFF LOCATION</label>
+                <br><select class="form-control" id="exampleFormControlSelect1" name="dest">
+                  <option value=" " selected disabled>--select--</option>
+                  <option value='Bhuj'>Bhuj</option>
+                  <option value='Maliya'>Maliya</option>
+                  <option value="Halvad">Halvad</option>
+                  <option value="Dhrangadhra">Dhrangdhra</option>
+                  <option value="Viramgaam">Viramgam</option>
+                  <option value="Ahemdabad">Ahemdabad</option>
+                </select>
+              </div>
+              <div class="col-sm-3 pt-3">
+                <button type="submit" class="btn btn-lg px-4" style="background-color: #3c91f8; color: white;">Find Routes</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="table-container table-1 mt-5 Find">
+    
+    <table class="table">
+      <!-- <tr style="background-color: #3c91f8; color: white;">
+        <th>Passenger Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Route</th>
+        <th>Date</th>
+        <th style=" border-right: #3c91f8;"></th>
+      </tr> -->
+     <div class="mt-4">
+       
+       <!-- <h1>{{bname.0}}</h1>
+        {% for i in bname %}
+          <div>
+            {{bname.0}}
+            {{i}}
+          </div>
+       {% endfor %} -->
+
+       {% for i in zipp %}
+       <tr>
+       <td>{{i.0}}</td>
+       <td>{{i.1}}<br>
+        <i style="color: gray;"><em>{{i.3}}</em></i></td>
+        <td>{{i.2}}<br>
+          <i style="color: gray;"><em>{{i.4}}</em></i></td>
+       <td>{{i.6}}</td>
+       <td>₹{{i.5}}</td>
+       <td>{{i.7}}</td>
+       <td data-label="Book Now"><a class="btn rounded-pill px-4" 
+        style="background-color: #3c91f8; color: white;" href="{%url 'book_Bus' name=i.0 pick=i.1 dest=i.2 ptime=i.3 dtime=i.4 fare=i.5 bustype=i.6 date=i.7 %}">Book</a></td>
+      </tr>
+       {% endfor %}
+
+       <!-- {% for i in zipp %}
+        <td>{{i.0}}</td>
+        <td>
+          {{i.1}}<br>
+          <i style="color: gray;" ><em>{{i.2}}</em></i>
+        </td>
+        <td data-label="Age">
+          {{i.3}}<br>
+          <i style="color: gray;" ><em>{{i.4}}</em></i>
+        </td>
+        <td data-label="Route">₹{{i.5}}</td>
+        <td data-label="Book Now"><button class="btn rounded-pill px-4" 
+        style="background-color: #3c91f8; color: white;">Book</button></td>
+      {% endfor %} -->
+    </div>
+    </table>
+  </div>
+  <!-- <div class="container-fluid">
+    <div class="row routes m-4">
+      <center><h1 class="section-head">Top Bus Routes</h1></center>
+      <div class="row">
+        <div class="table-container">
+              <table class="table">
+                  <tr>
+                      <th style="background-color: #3c91f8; border-left: #3c91f8;">Id</th>
+                      <th style="background-color: #3c91f8;">Routes</th>
+                      <th style="background-color: #3c91f8;">Popular Bus Types</th>
+                      <th style="background-color: #3c91f8;">Price</th>
+                      <th style="background-color: #3c91f8; border-right: #3c91f8;">Book</th>
+                    </tr>
+                  <tr>
+                      <td data-label="Sr no.">1.</td>
+                      <td data-label="Routes">Ahmedabad to Surat bus <br>5 hr 26 mins (appx.)</td>
+                      <td data-label="Popular Bus Types">Non AC Seater, AC Seater, Non AC Sleeper, AC Sleeper</td>
+                      <td data-label="Price">₹135</td>
+                      <td data-label="Book Now"><button class="btn rounded-pill px-4" style="background-color: #3c91f8; color: white;">Book</button></td>
+                  </tr>
+                  <tr>
+                    <td data-label="sr no.">2.</td>
+                    <td data-label="Routes">Surat to Ahmedabad bus <br>6 hr 2 mins (appx.)</td>
+                    <td data-label="Popular Bus Types">Non AC Seater, AC Seater, Non AC Sleeper, AC Sleeper</td>
+                    <td data-label="Price">₹135</td>
+                    <td data-label="Book Now"><button class="btn rounded-pill px-4" style="background-color: #3c91f8; color: white;">Book</button></td>
+                  </tr>
+                <tr>
+                  <td data-label="sr no.">1.</td>
+                  <td data-label="Routes">Ahmedabad to Surat bus <br>5 hr 26 mins (appx.)</td>
+                  <td data-label="Popular Bus Types">Non AC Seater, AC Seater, Non AC Sleeper, AC Sleeper</td>
+                  <td data-label="Price">₹135</td>
+                  <td data-label="Book Now"><button class="btn rounded-pill px-4" style="background-color: #3c91f8; color: white;">Book</button></td>
+              </tr>
+              <tr>
+                <td data-label="sr no.">1.</td>
+                <td data-label="Routes">Ahmedabad to Surat bus <br>5 hr 26 mins (appx.)</td>
+                <td data-label="Popular Bus Types">Non AC Seater, AC Seater, Non AC Sleeper, AC Sleeper</td>
+                <td data-label="Price">₹135</td>
+                <td data-label="Book Now"><button class="btn rounded-pill px-4" style="background-color: #3c91f8; color: white;">Book</button></td>
+            </tr>
+            <tr>
+              <td data-label="sr no.">1.</td>
+              <td data-label="Routes">Ahmedabad to Surat bus <br>5 hr 26 mins (appx.)</td>
+              <td data-label="Popular Bus Types">Non AC Seater, AC Seater, Non AC Sleeper, AC Sleeper</td>
+              <td data-label="Price">₹135</td>
+              <td data-label="Book Now"><button class="btn rounded-pill px-4" style="background-color: #3c91f8; color: white;">Book</button></td>
+          </tr>
+          <tr>
+            <td data-label="sr no.">1.</td>
+            <td data-label="Routes">Ahmedabad to Surat bus <br>5 hr 26 mins (appx.)</td>
+            <td data-label="Popular Bus Types">Non AC Seater, AC Seater, Non AC Sleeper, AC Sleeper</td>
+            <td data-label="Price">₹135</td>
+            <td data-label="Book Now"><button class="btn rounded-pill px-4" style="background-color: #3c91f8; color: white;">Book</button></td>
+        </tr>
+        <tr>
+          <td data-label="sr no.">1.</td>
+          <td data-label="Routes">Ahmedabad to Surat bus <br>5 hr 26 mins (appx.)</td>
+          <td data-label="Popular Bus Types">Non AC Seater, AC Seater, Non AC Sleeper, AC Sleeper</td>
+          <td data-label="Price">₹135</td>
+          <td data-label="Book Now"><button class="btn rounded-pill px-4" style="background-color: #3c91f8; color: white;">Book</button></td>
+      </tr>
+                  
+                  
+              </table>
+              </div>
+      </div> -->
+    <!-- </div> -->
+  </div>
+<!-- <div class="title">
+  <div class="row">
+    <h1>hello</h1>
+  </div>
+</div> -->
+
+{% include 'Footer.html' %} 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

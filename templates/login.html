@@ -1,0 +1,70 @@
+{% load static %}
+{% include 'Navbar.html' %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  {% load static %} <link rel="stylesheet" href="{%  static  'CSS/sign-login.css'  %}">
+  <title>Sign-up</title>
+</head>
+<body>
+  <div class="login m-5">
+    <div class="row shadow-lg mb-5">
+      <div class="col-md-6 image">
+        {% load static %}<img src="{% static 'image/unlock.svg' %}" alt="" class=" d-none d-md-block img-fluid"
+          style="width: 100%; background-color: #3c91f8;">
+      </div>
+      <div class="col-md form p-4 py-3 pb-2">
+        <div class="my-auto text-center"> 
+          <h3>Login</h3>
+          <form id="form" method="POST" action="login">
+            {% csrf_token %}
+            <div class="form-group rounded-pill my-3 px-3 shadow">
+              <i class="fas fa-user-circle"></i>
+              <input type="text" name='username' style="border: none;" placeholder=" Username">
+            </div>
+            <div class="form-group rounded-pill my-3 px-3 shadow">
+              <i class="fas fa-lock"></i>
+              <input type="password" name='password' style="border: none;" placeholder=" password">
+            </div>
+
+            <button type="submit" class="btn my-2 px-5 rounded-pill shadow-lg" style="background-color: #3c91f8; color: white;">
+              <em><i>Login</i></em></button>
+            <p style="color: gray;"><i>don't have account? <a href="sign-up" style="color: #3c91f8;">Create Account</a></i></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% include 'Footer.html' %} 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
+<!-- <script type="text/javascript">
+    $(document).on('submit','#form',function(e){
+        e.preventDefault();
+        $.ajax({
+            type:'POST',
+            url:'convert_base',
+            data:
+            {
+                name:$("#name").val(),
+                baseto:$("#baseto").val(),
+                basefrom:$("#basefrom").val(),
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },
+            success:function(data){
+              $('textarea').html(data);        
+            }
+            })
+        })
+    </script> -->
+</body>
+</html>

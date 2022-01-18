@@ -1,0 +1,360 @@
+{% load static %}
+{% include 'Navbar.html' %} 
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	{% load static %} <link rel="stylesheet" href="{%  static  'CSS/home.css'  %}">
+  <style>
+    .animated {
+      width: 100%;
+      height: 90vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color:#3c91f8;
+      background: linear-gradient(to bottom, #3c91f8 8%, #ffffff 100%); 
+    }
+
+    .bubbles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .bubble {
+      width: 25px;
+      height: 25px;
+      border-radius: 50px;
+      background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.1) 0%, rgba(237, 237, 237, 0.4) 100%);
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 5px 5px 10px 0px #3c91f8;
+      animation: animate_bubbles 10s linear infinite;
+    }
+
+    .bubble:nth-child(even) {
+      background: radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.1) 0%, rgba(237, 237, 237, 0.4) 100%);
+    }
+
+    .bubble::before {
+      content: '';
+      width: calc(100% - 80%);
+      height: calc(100% - 70%);
+      position: absolute;
+      left: 30%;
+      top: 20%;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.6);
+      transform: rotate(20deg);
+    }
+
+    .bubble:nth-child(even)::before {
+      left: 40%;
+      top: 60%;
+      transform: rotate(-20deg);
+    }
+
+    .bubble:nth-child(1) {
+      left: -5%;
+      width: 100px;
+      height: 100px;
+      animation-duration: 10s;
+    }
+
+    .bubble:nth-child(2) {
+      left: 10%;
+      width: 80px;
+      height: 80px;
+      animation-duration: 14s;
+    }
+
+    .bubble:nth-child(3) {
+      left: 30%;
+      width: 40px;
+      height: 40px;
+      animation-duration: 10s;
+    }
+
+    .bubble:nth-child(4) {
+      left: 40%;
+      width: 20px;
+      height: 20px;
+      animation-duration: 23s;
+    }
+
+    .bubble:nth-child(5) {
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      animation-duration: 12s;
+    }
+
+    .bubble:nth-child(6) {
+      left: 65%;
+      width: 40px;
+      height: 40px;
+      animation-duration: 22s;
+    }
+
+    .bubble:nth-child(7) {
+      left: 70%;
+      width: 80px;
+      height: 80px;
+      animation-duration: 25s;
+    }
+
+    .bubble:nth-child(8) {
+      left: 75%;
+      width: 40px;
+      height: 40px;
+      animation-duration: 14s;
+    }
+
+    .bubble:nth-child(9) {
+      left: 80%;
+      width: 100px;
+      height: 100px;
+      animation-duration: 19s;
+    }
+
+    .bubbles .bubble:nth-child(10) {
+      right: -5%;
+      width: 80px;
+      height: 80px;
+      animation-duration: 13s;
+    }
+
+    .bubble:nth-child(11) {
+      left: -12%;
+      width: 100px;
+      height: 100px;
+      animation-duration: 31s;
+    }
+
+    .bubble:nth-child(12) {
+      left: 25%;
+      width: 80px;
+      height: 80px;
+      animation-duration: 14s;
+    }
+
+    .bubble:nth-child(13) {
+      left: 35%;
+      width: 40px;
+      height: 40px;
+      animation-duration: 10s;
+    }
+
+    .bubble:nth-child(14) {
+      left: 45%;
+      width: 40px;
+      height: 40px;
+      animation-duration: 13s;
+    }
+
+    .bubble:nth-child(15) {
+      left: 55%;
+      width: 80px;
+      height: 80px;
+      animation-duration: 12s;
+    }
+
+    .bubble:nth-child(16) {
+      left: 60%;
+      width: 40px;
+      height: 40px;
+      animation-duration: 15s;
+    }
+
+    .bubble:nth-child(17) {
+      left: 100%;
+      width: 80px;
+      height: 80px;
+      animation-duration: 25s;
+    }
+
+    .bubble:nth-child(18) {
+      left: 79%;
+      width: 40px;
+      height: 40px;
+      animation-duration: 14s;
+    }
+
+    .bubble:nth-child(19) {
+      left: 80%;
+      width: 100px;
+      height: 100px;
+      animation-duration: 19s;
+    }
+
+    .bubble:nth-child(20) {
+      right: 95%;
+      width: 80px;
+      height: 80px;
+      animation-duration: 13s;
+    }
+
+    @keyframes animate_bubbles {
+      0% {
+        transform: scale(0) translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        transform: scale(0) translateY(1000px) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.5) translateY(-1000px) rotate(360deg);
+        opacity: 0.5;
+      }
+    }
+
+.form{
+display: flex;
+justify-content: center;
+color: #3c91f8;
+} 
+.fas{
+color: #3c91f8;
+}
+
+input{
+  outline: none;
+  width: 200px;
+  height: 35px;
+}
+.content{
+  background-color: #ffffff;
+  position: absolute;
+  top: 0px;
+  border-radius: 6px;
+  border: 18px solid white;
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+.content {
+	position: relative;
+	z-index: 0;
+	/* width: 400px;
+	height: 300px; */
+	/* border-radius: 10px; */
+	overflow: hidden;
+	/* padding: 2rem; */
+}
+	.content::before {
+		content: '';
+		position: absolute;
+		z-index: -2;
+		left: -50%;
+		top: -50%;
+		width: 200%;
+		height: 200%;
+		background-color: #ffff;
+		background-repeat: no-repeat;
+		background-size: 50% 50%, 50% 50%;
+		background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+		background-image: linear-gradient( #3c91f8,#3c91f8 ), 
+    linear-gradient(to bottom, #3c91f8 8%, #ffffff 100%), 
+    linear-gradient(to bottom, #3c91f8 8%, #ffffff 100%), 
+    linear-gradient(to bottom, #3c91f8 8%, #ffffff 100%);
+		animation: rotate 3s linear infinite;
+	}
+	
+	.content::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 6px;
+		top: 6px;
+		width: calc(100% - 12px);
+		height: calc(100% - 12px);
+		background: white;
+		border-radius: 5px;
+	}
+
+
+  </style>
+	<title>Hello, world!</title>
+</head>
+
+<body>
+	<div class="animated">
+		<div class="bubbles">
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+		</div>
+		<div class="content p-5" >
+      <div class=" form p-5 py-3 pb-2">
+        <div class="my-auto text-center"> 
+          <h3>Get in touch</h3>
+          <form id="form">
+            <div class="form-group rounded-pill my-3 px-3 shadow">
+              <i class="fas fa-user"></i>
+              <input type="text" name='password' style="border: none;"
+                id="name" placeholder=" Full name">
+            </div>
+            <div class="form-group rounded-pill my-3 px-3 shadow">
+              <i class="fas fa-envelope"></i>
+              <input type="email" name='password' style="border: none;"
+                id="name" placeholder=" Email">
+            </div>
+            <div class="form-group rounded-pill my-3 px-3 shadow">
+              <i class="fas fa-sticky-note"></i>
+              <input type="text" name='password' style="border: none;"
+                id="name" placeholder="Message or Suggetion">
+            </div>
+            
+
+            <button href="home" type="submit" class="btn my-2 px-3 rounded-pill shadow-lg" style="background-color: #3c91f8; color: white;">
+              <em><i>Send</i></em> <a href="home"></a></button>
+            
+          </form>
+        </div>
+      </div>
+		</div>
+	</div>
+	
+	{% include 'Footer.html' %} 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

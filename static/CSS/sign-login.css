@@ -1,0 +1,37 @@
+.login{
+    margin: auto;
+    margin-left: auto;
+    padding: auto;
+}
+  .login .row{
+    width: 70%;
+    margin: auto;
+  }
+.login input{
+border: none;
+outline: none;
+height: 35px;
+}
+@media only screen and (max-width: 600px) {
+.login .row {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+}
+.login .image{
+background-color: #3c91f8; 
+color: white;
+height: 400px;
+display: flex;
+justify-content: center;
+}
+.login .form{
+display: flex;
+justify-content: center;
+color: #3c91f8;
+} 
+.login .fas{
+color: #3c91f8;
+}
